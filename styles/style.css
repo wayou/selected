@@ -1,0 +1,75 @@
+* {
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    color:#999;
+}
+
+header h1{
+	display: inline-block;
+}
+a{
+    color:#999;
+    text-decoration: none;
+}
+a:hover{
+	color: #eee;
+    text-decoration: underline;
+}
+body{
+	background: url('../content/images/raindrop.jpg')   no-repeat ;
+}
+.wrapper {
+    text-align: center;
+    width: 99%;
+    margin: 0 auto;
+}
+#player {
+    position: fixed;
+    bottom: 5px;
+    opacity: 0.2;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+#player:hover {
+    opacity: 1;
+}
+#playlist {
+    text-align: left;
+    width: 300px;
+    height: 500px;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(50,50,50,0.5);
+}
+
+#lyricWrapper {
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+#lyricContainer {
+   position: relative;
+   top: 130px;
+   text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;/*http://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text*/
+}
+.current-line{
+	color:red;
+}
+.current-song,.current-song a{
+    color: #A6E22D;
+}
+/*hide the default audio controls when overflow, the 526px is the width of the controls in IE*/
+@media screen and (max-width: 526px) {
+    #player {
+        display: none;
+   }
+}

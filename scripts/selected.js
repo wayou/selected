@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.1
+ * v0.1.3
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apri 5th,2014
  * view on GitHub:
@@ -14,23 +14,37 @@ var Selected = function() {
     this.audio = document.getElementById('audio');
     this.lyricContainer = document.getElementById('lyricContainer');
     this.playlist = document.getElementById('playlist');
+    this.currentIndex = 0;
 };
 Selected.prototype = {
     constructor: Selected, //fix the prototype chain
     init: function() {
         var that = this,
-        allSongs=this.playlist.children[0].children;
-        var randomSong=allSongs[Math.floor(Math.random()*allSongs.length)].children[0].getAttribute('data-name');
-
+            allSongs = this.playlist.children[0].children,
+            currentSong, randomSong;
+        this.currentIndex = Math.floor(Math.random() * allSongs.length);
+        currentSong = allSongs[this.currentIndex];
+        randomSong = currentSong.children[0].getAttribute('data-name');
         //handle playlist
         this.playlist.addEventListener('click', function(e) {
             if (e.target.nodeName.toLowerCase() !== 'a') {
                 return;
             };
+            var allSongs = that.playlist.children[0].children,
+                selectedIndex = Array.prototype.indexOf.call(allSongs, e.target.parentNode);
+            that.currentIndex = selectedIndex;
+            that.setClass(selectedIndex);
             var songName = e.target.getAttribute('data-name');
             that.play(songName);
         }, false);
+        this.audio.onended = function() {
+            that.playNext(that);
+        }
         //initially start from a random song
+        for (var i = allSongs.length - 1; i >= 0; i--) {
+            allSongs[i].className = '';
+        };
+        currentSong.className = 'current-song';
         this.play(randomSong);
     },
     play: function(songName) {
@@ -56,6 +70,29 @@ Selected.prototype = {
                 };
             };
         };
+    },
+    playNext: function(that) {
+        var allSongs = this.playlist.children[0].children,
+            nextItem;
+        //reaches the last song of the playlist?
+        if (that.currentIndex === allSongs.length-1) {
+            //play from start
+            that.currentIndex = 0;
+        } else {
+            //play next index
+            that.currentIndex += 1;
+        };
+        nextItem = allSongs[that.currentIndex].children[0];
+        that.setClass(that.currentIndex);
+        var songName = nextItem.getAttribute('data-name');
+        that.play(songName);
+    },
+    setClass: function(index) {
+        var allSongs = this.playlist.children[0].children;
+        for (var i = allSongs.length - 1; i >= 0; i--) {
+            allSongs[i].className = '';
+        };
+        allSongs[index].className = 'current-song';
     },
     getLyric: function(url) {
         var that = this,

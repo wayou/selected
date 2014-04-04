@@ -64,6 +64,9 @@ body{
 .current-line{
 	color:red;
 }
+.current-song,.current-song a{
+    color: green;
+}
 /*hide the default audio controls when overflow, the 526px is the width of the controls in IE*/
 @media screen and (max-width: 526px) {
     #player {

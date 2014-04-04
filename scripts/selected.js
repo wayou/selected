@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.3
+ * v0.1.5
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apri 5th,2014
  * view on GitHub:

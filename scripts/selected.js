@@ -41,10 +41,10 @@ Selected.prototype = {
         this.audio.onended = function() {
             that.playNext(that);
         }
-        this.audio.onstalled = this.audio.onseeking = function(e) {
-            that.lyricContainer.style.top = '130px';
-            that.lyricContainer.textContent = 'loading...';
-        };
+        // this.audio.onstalled = this.audio.onseeking = function(e) {
+        //     that.lyricContainer.style.top = '130px';
+        //     that.lyricContainer.textContent = 'loading...';
+        // };
         this.audio.onerror = function(e) {
             that.lyricContainer.textContent = '!error loading the song :(';
         };

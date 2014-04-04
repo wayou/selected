@@ -55,6 +55,9 @@ Selected.prototype = {
         this.audio.src = './content/songs/' + songName + '.mp3';
         //reset the position of the lyric container
         this.lyricContainer.style.top = '130px';
+        //empty the lyric
+        this.lyric=null;
+
         this.lyricContainer.textContent = 'loading...';
         this.audio.oncanplay = function() {
             that.getLyric(that.audio.src.replace('.mp3', '.lrc'));

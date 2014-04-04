@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.8
+ * v0.1.9
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apri 5th,2014
  * view on GitHub:
@@ -57,7 +57,6 @@ Selected.prototype = {
         this.lyricContainer.style.top = '130px';
         //empty the lyric
         this.lyric=null;
-
         this.lyricContainer.textContent = 'loading...';
         this.audio.oncanplay = function() {
             that.getLyric(that.audio.src.replace('.mp3', '.lrc'));

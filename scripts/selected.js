@@ -1,10 +1,10 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.11
+ * v0.1.12
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apri 5th,2014
- * view on GitHub:
- * see the live site:
+ * view on GitHub:https://github.com/wayou/selected
+ * see the live site:http://wayou.github.io/selected/
  * songs used in this project are only for educational purpose. please don't distribute or sell
  */
 window.onload = function() {
@@ -15,7 +15,7 @@ var Selected = function() {
     this.lyricContainer = document.getElementById('lyricContainer');
     this.playlist = document.getElementById('playlist');
     this.currentIndex = 0;
-    this.lyric=null;
+    this.lyric = null;
 };
 Selected.prototype = {
     constructor: Selected, //fix the prototype chain
@@ -41,7 +41,8 @@ Selected.prototype = {
         this.audio.onended = function() {
             that.playNext(that);
         }
-         this.audio.onstalled = function(e) {
+        this.audio.onstalled = this.audio.onseeking = function(e) {
+            that.lyricContainer.style.top = '130px';
             that.lyricContainer.textContent = 'loading...';
         };
         this.audio.onerror = function(e) {
@@ -60,7 +61,7 @@ Selected.prototype = {
         //reset the position of the lyric container
         this.lyricContainer.style.top = '130px';
         //empty the lyric
-        this.lyric=null;
+        this.lyric = null;
         this.lyricContainer.textContent = 'loading...';
         this.audio.oncanplay = function() {
             that.getLyric(that.audio.src.replace('.mp3', '.lrc'));

@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.9
+ * v0.1.10
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apri 5th,2014
  * view on GitHub:
@@ -15,6 +15,7 @@ var Selected = function() {
     this.lyricContainer = document.getElementById('lyricContainer');
     this.playlist = document.getElementById('playlist');
     this.currentIndex = 0;
+    this.lyric=null;
 };
 Selected.prototype = {
     constructor: Selected, //fix the prototype chain

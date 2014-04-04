@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.0
+ * v0.1.1
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apri 5th,2014
  * view on GitHub:
@@ -18,7 +18,10 @@ var Selected = function() {
 Selected.prototype = {
     constructor: Selected, //fix the prototype chain
     init: function() {
-        var that = this;
+        var that = this,
+        allSongs=this.playlist.children[0].children;
+        var randomSong=allSongs[Math.floor(Math.random()*allSongs.length)].children[0].getAttribute('data-name');
+
         //handle playlist
         this.playlist.addEventListener('click', function(e) {
             if (e.target.nodeName.toLowerCase() !== 'a') {
@@ -27,7 +30,8 @@ Selected.prototype = {
             var songName = e.target.getAttribute('data-name');
             that.play(songName);
         }, false);
-        this.play('na_ge');
+        //initially start from a random song
+        this.play(randomSong);
     },
     play: function(songName) {
         var that = this;
@@ -59,7 +63,7 @@ Selected.prototype = {
         request.open('GET', url, true);
         request.responseType = 'text';
         //fix for the messy code problem for Chinese reference: http://xx.time8.org/php/20101218/ajax-xmlhttprequest.html
-        //既然无法判断是否乱码，就做个‘修正乱码’的按钮让用户自己点
+        //既然无法判断是否乱码，就做个‘修正乱码’的按钮
         //request['overrideMimeType'] && request.overrideMimeType("text/html;charset=gb2312");
         request.onload = function() {
             that.lyric = that.parseLyric(request.response);

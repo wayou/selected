@@ -13,8 +13,11 @@ html, body {
     padding: 0;
     color: #999;
 }
-header h1 {
+header h1{
     display: inline-block;
+}
+header h1 a{
+    color: #bbb;
 }
 a {
     color: #999;

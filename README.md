@@ -1,8 +1,8 @@
-:heart:精選
+:heart:精選:heart:
 ========
 
 a collection of songs that I love, also shows how to sync lyric with HTML5 audio tag
 
-[view the site](http://wayou.github.io/selected)
+:point_right:[view the site](http://wayou.github.io/selected)
 
 !songs used in this project are only for educational purpose. please don't distribute or sell

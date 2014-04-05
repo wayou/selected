@@ -1,0 +1,8 @@
+<br />
+<b>Fatal error</b>:  Uncaught exception 'MongoCursorException' with message 'couldn't send query: ' in /data/home/wwwroot/lyric/0.2/lyric2.php:122
+Stack trace:
+#0 /data/home/wwwroot/lyric/0.2/lyric2.php(122): MongoCollection-&gt;findOne(Array)
+#1 /data/home/wwwroot/lyric/0.2/lyric2.php(66): Lyric2-&gt;_get_lyric_by_lyric_uuid('4e7dd3274220cfe...')
+#2 /data/home/wwwroot/lyric/0.2/index.php(21): Lyric2-&gt;get_lyric_content('4e7dd3274220cfe...')
+#3 {main}
+  thrown in <b>/data/home/wwwroot/lyric/0.2/lyric2.php</b> on line <b>122</b><br />

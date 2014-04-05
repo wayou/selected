@@ -80,7 +80,6 @@ Selected.prototype = {
                     prevLine.className = '';
                     line.className = 'current-line';
                     that.lyricContainer.style.top = 130 - line.offsetTop + 'px';
-                    break;
                 };
             };
         };

@@ -56,11 +56,19 @@ html {
     max-width: 300px;
     height: 500px;
     padding: 5px;
-    overflow: auto;
     position: absolute;
     left: 0;
     z-index: 2;
     background-color: rgba(50, 50, 50, 0.5);
+}
+.info a{
+    color: #bbb;
+    text-decoration: underline;
+}
+#playlist ol {
+    height: 480px;
+    overflow: auto;
+    margin: 0;
 }
 #lyricWrapper {
     height: 315px;

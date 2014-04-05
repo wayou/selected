@@ -7,12 +7,12 @@
     background: green;
     color: #fff;
     text-shadow:none;
-    font-family: arial;
 }
 html, body {
     margin: 0;
     padding: 0;
     color: #555;
+    font-family: arial;
 }
 header h1{
     display: inline-block;

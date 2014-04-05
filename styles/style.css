@@ -28,8 +28,12 @@ a:hover {
     color: #eee;
     text-decoration: underline;
 }
-body {
-    background: url('../content/images/bg.jpg') no-repeat;
+html {
+    background: url(../content/images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .wrapper {
     text-align: center;
@@ -59,7 +63,7 @@ body {
     background-color: rgba(50, 50, 50, 0.5);
 }
 #lyricWrapper {
-    height: 320px;
+    height: 315px;
     overflow: hidden;
     position: relative;
     margin-top: 20px;

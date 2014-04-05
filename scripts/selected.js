@@ -46,7 +46,7 @@ Selected.prototype = {
         //     that.lyricContainer.textContent = 'loading...';
         // };
         this.audio.onerror = function(e) {
-            that.lyricContainer.textContent = '!error loading the song :(';
+            that.lyricContainer.textContent = '!fail to the song :(';
         };
         //initially start from a random song
         for (var i = allSongs.length - 1; i >= 0; i--) {

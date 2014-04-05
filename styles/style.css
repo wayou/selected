@@ -7,11 +7,12 @@
     background: green;
     color: #fff;
     text-shadow:none;
+    font-family: arial;
 }
 html, body {
     margin: 0;
     padding: 0;
-    color: #999;
+    color: #555;
 }
 header h1{
     display: inline-block;
@@ -66,10 +67,11 @@ body {
 #lyricContainer {
     position: relative;
     top: 130px;
-    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;/*http://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text*/
+    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff;/*http://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text*/
 }
 .current-line {
     color: red;
+    font-weight: bold;
 }
 .current-song, .current-song a {
     color: #A6E22D;

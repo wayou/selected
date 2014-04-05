@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.13
+ * v0.1.14
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apri 5th,2014
  * view on GitHub:https://github.com/wayou/selected
@@ -71,7 +71,7 @@ Selected.prototype = {
         this.audio.ontimeupdate = function(e) {
             if (!that.lyric) return;
             for (var i = 0, l = that.lyric.length; i < l; i++) {
-                if (this.currentTime > that.lyric[i][0]) {
+                if (this.currentTime > that.lyric[i][0]-0.50/*preload the lyric by 0.50s*/) {
                     //single line display mode
                     // that.lyricContainer.textContent = that.lyric[i][1];
                     //scroll mode

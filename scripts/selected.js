@@ -113,7 +113,6 @@ Selected.prototype = {
         request.open('GET', url, true);
         request.responseType = 'text';
         //fix for the messy code problem for Chinese reference: http://xx.time8.org/php/20101218/ajax-xmlhttprequest.html
-        //既然无法判断是否乱码，就做个‘修正乱码’的按钮
         //request['overrideMimeType'] && request.overrideMimeType("text/html;charset=gb2312");
         request.onload = function() {
             that.lyric = that.parseLyric(request.response);

@@ -63,15 +63,15 @@ body {
     overflow: hidden;
     position: relative;
     margin-top: 20px;
+    color: #fff;
 }
 #lyricContainer {
     position: relative;
     top: 130px;
-    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff;/*http://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text*/
+    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000;/*http://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text*/
 }
 .current-line {
-    color: red;
-    font-weight: bold;
+    color: #FAFA17;
 }
 .current-song, .current-song a {
     color: #A6E22D;

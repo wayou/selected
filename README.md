@@ -1,4 +1,4 @@
-:notes: 精選
+精選 :notes:
 ========
 
 a collection of songs that I love, also shows how to sync lyric with HTML5 audio tag

@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.16
+ * v0.1.17
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apr 5th,2014
  * view on GitHub:https://github.com/wayou/selected
@@ -42,13 +42,16 @@ Selected.prototype = {
         this.audio.onended = function() {
             that.playNext(that);
         }
-        // this.audio.onstalled = this.audio.onseeking = function(e) {
-        //     that.lyricContainer.style.top = '130px';
-        //     that.lyricContainer.textContent = 'loading...';
-        // };
         this.audio.onerror = function(e) {
             that.lyricContainer.textContent = '!fail to load the song :(';
         };
+        //initialize the background setting
+        document.getElementById('bg_dark').addEventListener('click', function() {
+            document.getElementsByTagName('html')[0].className = 'colorBg';
+        });
+         document.getElementById('bg_pic').addEventListener('click', function() {
+            document.getElementsByTagName('html')[0].className = 'imageBg';
+        });
         //initially start from a random song
         for (var i = allSongs.length - 1; i >= 0; i--) {
             allSongs[i].className = '';

@@ -6,7 +6,7 @@
 ::selection {
     background: green;
     color: #fff;
-    text-shadow:none;
+    text-shadow: none;
 }
 html, body {
     margin: 0;
@@ -14,10 +14,13 @@ html, body {
     color: #999;
     font-family: arial;
 }
-header h1{
+html {
+    background-color: #272822;
+}
+header h1 {
     display: inline-block;
 }
-header h1 a{
+header h1 a {
     color: #bbb;
 }
 a {
@@ -28,12 +31,15 @@ a:hover {
     color: #eee;
     text-decoration: underline;
 }
-html {
-    background: url(../content/images/bg.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.imageBg {
+    background: url(../content/images/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.colorBg {
+    background-image: none;
 }
 .wrapper {
     text-align: center;
@@ -58,12 +64,24 @@ html {
     padding: 5px;
     position: absolute;
     left: 0;
-    z-index: 2;
+    z-index: 999;
     background-color: rgba(50, 50, 50, 0.5);
 }
-.info a{
+.info a {
     color: #bbb;
     text-decoration: underline;
+}
+.bg {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    cursor: pointer;
+}
+#bg_pic {
+    background-color: #5493B6;
+}
+#bg_dark {
+    background-color: #272822;
 }
 #playlist ol {
     height: 480px;

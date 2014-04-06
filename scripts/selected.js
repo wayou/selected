@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.15
+ * v0.1.16
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apr 5th,2014
  * view on GitHub:https://github.com/wayou/selected
@@ -16,6 +16,7 @@ var Selected = function() {
     this.playlist = document.getElementById('playlist');
     this.currentIndex = 0;
     this.lyric = null;
+    this.lyricStyle = 0; //random num to specify the different class name for lyric
 };
 Selected.prototype = {
     constructor: Selected, //fix the prototype chain
@@ -63,6 +64,7 @@ Selected.prototype = {
         //empty the lyric
         this.lyric = null;
         this.lyricContainer.textContent = 'loading...';
+        this.lyricStyle = Math.floor(Math.random() * 4);
         this.audio.oncanplay = function() {
             that.getLyric(that.audio.src.replace('.mp3', '.lrc'));
             this.play();
@@ -71,14 +73,15 @@ Selected.prototype = {
         this.audio.ontimeupdate = function(e) {
             if (!that.lyric) return;
             for (var i = 0, l = that.lyric.length; i < l; i++) {
-                if (this.currentTime > that.lyric[i][0]-0.50/*preload the lyric by 0.50s*/) {
+                if (this.currentTime > that.lyric[i][0] - 0.50 /*preload the lyric by 0.50s*/ ) {
                     //single line display mode
                     // that.lyricContainer.textContent = that.lyric[i][1];
                     //scroll mode
                     var line = document.getElementById('line-' + i),
                         prevLine = document.getElementById('line-' + (i > 0 ? i - 1 : i));
                     prevLine.className = '';
-                    line.className = 'current-line';
+                    //randomize the color of the current line of the lyric
+                    line.className = 'current-line-' + that.lyricStyle;
                     that.lyricContainer.style.top = 130 - line.offsetTop + 'px';
                 };
             };

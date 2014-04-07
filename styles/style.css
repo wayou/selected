@@ -15,7 +15,7 @@ html, body {
     font-family: arial;
 }
 html {
-    background-color: #272822;
+    background-color: #1b2426;
 }
 header h1 {
     display: inline-block;
@@ -28,7 +28,7 @@ a {
     text-decoration: none;
 }
 a:hover {
-    color: #1b2426;
+    color: #eee;
     text-decoration: underline;
 }
 .imageBg {

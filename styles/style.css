@@ -133,6 +133,7 @@ a:hover {
 #playlist ol::-webkit-scrollbar
 {
 	width: 5px;
+    border-radius: 15px;
 	background-color: #F5F5F5;
 }
 

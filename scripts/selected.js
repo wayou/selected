@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.1.19
+ * v0.2.0
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apr 5th,2014
  * view on GitHub:https://github.com/wayou/selected
@@ -21,12 +21,17 @@ var Selected = function() {
 Selected.prototype = {
     constructor: Selected, //fix the prototype chain
     init: function() {
+        //get all songs and add to the playlist
+        this.initialList(this);
+
         var that = this,
             allSongs = this.playlist.children[0].children,
             currentSong, randomSong;
         this.currentIndex = Math.floor(Math.random() * allSongs.length);
         currentSong = allSongs[this.currentIndex];
         randomSong = currentSong.children[0].getAttribute('data-name');
+
+
         //handle playlist
         this.playlist.addEventListener('click', function(e) {
             if (e.target.nodeName.toLowerCase() !== 'a') {
@@ -49,7 +54,7 @@ Selected.prototype = {
         document.getElementById('bg_dark').addEventListener('click', function() {
             document.getElementsByTagName('html')[0].className = 'colorBg';
         });
-         document.getElementById('bg_pic').addEventListener('click', function() {
+        document.getElementById('bg_pic').addEventListener('click', function() {
             document.getElementsByTagName('html')[0].className = 'imageBg';
         });
         //initially start from a random song
@@ -58,6 +63,30 @@ Selected.prototype = {
         };
         currentSong.className = 'current-song';
         this.play(randomSong);
+    },
+    initialList: function(ctx) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', './scripts/content.json', false);
+        xhttp.onreadystatechange = function() {
+            if (xhttp.status == 200 && xhttp.readyState == 4) {
+                var fragment = document.createDocumentFragment(),
+                    data = JSON.parse(xhttp.responseText).data,
+                    ol = ctx.playlist.getElementsByTagName('ol')[0],
+                    fragment = document.createDocumentFragment();
+
+                data.forEach(function(v, i, a) {
+                    var li = document.createElement('li'),
+                        a = document.createElement('a');
+                    a.href = 'javascript:void(0)';
+                    a.dataset.name = v.lrc_name;
+                    a.textContent = v.song_name + '-' + v.artist;
+                    li.appendChild(a);
+                    fragment.appendChild(li);
+                });
+                ol.appendChild(fragment);
+            }
+        };
+        xhttp.send();
     },
     play: function(songName) {
         var that = this;
@@ -125,7 +154,7 @@ Selected.prototype = {
             //display lyric to the page
             that.appendLyric(that.lyric);
         };
-        request.onerror =request.onabort= function(e) {
+        request.onerror = request.onabort = function(e) {
             that.lyricContainer.textContent = '!failed to load the lyric :(';
         }
         this.lyricContainer.textContent = 'loading lyric...';
@@ -138,9 +167,9 @@ Selected.prototype = {
             pattern = /\[\d{2}:\d{2}.\d{2}\]/g,
             result = [];
 
-	// Get offset from lyrics
-	var offset = this.getOffset(text);
-	
+        // Get offset from lyrics
+        var offset = this.getOffset(text);
+
         //exclude the description parts or empty parts of the lyric
         while (!pattern.test(lines[0])) {
             lines = lines.slice(1);
@@ -178,24 +207,24 @@ Selected.prototype = {
         lyricContainer.appendChild(fragment);
     },
     getOffset: function(text) {
-    	//Returns offset in miliseconds.
-	var offset = 0;
-	try{
-		// Pattern matches [offset:1000]
-		var offsetPattern = /\[offset:\-?\+?\d+\]/g,
-		    // Get only the first match.
-		    offset_line = text.match(offsetPattern)[0],
-		    // Get the second part of the offset.
-		    offset_str = offset_line.split(':')[1];
-		// Convert it to Int.
-		offset = parseInt(offset_str);
-	}catch(err){
-		//alert("offset error: "+err.message);
-		offset = 0;
-	}
-	return offset;
+        //Returns offset in miliseconds.
+        var offset = 0;
+        try {
+            // Pattern matches [offset:1000]
+            var offsetPattern = /\[offset:\-?\+?\d+\]/g,
+                // Get only the first match.
+                offset_line = text.match(offsetPattern)[0],
+                // Get the second part of the offset.
+                offset_str = offset_line.split(':')[1];
+            // Convert it to Int.
+            offset = parseInt(offset_str);
+        } catch (err) {
+            //alert("offset error: "+err.message);
+            offset = 0;
+        }
+        return offset;
     }
-}
+};
 //currently not in use
 // Selected.formatTime = function(time) {
 //     var h, m, s;

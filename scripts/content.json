@@ -177,7 +177,11 @@
         "lrc_name": "ji_qi_ling_kan_cai_dao"
     }, {
         "song_name": "从何说起",
-        "artist": "陈奕迅",
+        "artist": "Eason Chan",
         "lrc_name": "cong_he_shuo_qi"
+    }, {
+        "song_name": "放过",
+        "artist": "崔天琪",
+        "lrc_name": "fang_guo"
     }]
 }

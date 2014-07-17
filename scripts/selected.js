@@ -9,7 +9,7 @@
  */
 window.onload = function() {
     new Selected().init();
-};
+}; 
 var Selected = function() {
     this.audio = document.getElementById('audio');
     this.lyricContainer = document.getElementById('lyricContainer');

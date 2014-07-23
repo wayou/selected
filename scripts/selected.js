@@ -9,7 +9,7 @@
  */
 window.onload = function() {
     new Selected().init();
-}; 
+};
 var Selected = function() {
     this.audio = document.getElementById('audio');
     this.lyricContainer = document.getElementById('lyricContainer');
@@ -225,11 +225,3 @@ Selected.prototype = {
         return offset;
     }
 };
-//currently not in use
-// Selected.formatTime = function(time) {
-//     var h, m, s;
-//     h = Math.floor(time / 3600);
-//     m = time / 60 > 59 ? Math.floor(time / 60 % 60) : Math.floor(time / 60);
-//     s = time > 59 ? Math.floor(time % 60) : Math.floor(time);
-//     return (h < 10 ? '0' + h : h) + ':' + (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
-// }

@@ -95,10 +95,12 @@ a:hover {
     margin-top: 20px;
     color: #fff;
 }
+
+/* http://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text */
 #lyricContainer {
     position: relative;
     top: 130px;
-    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000;/*http://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text*/
+    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000; 
 }
 .current-line-0 {
     color: #FAFA17;

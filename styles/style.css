@@ -12,7 +12,7 @@ html, body {
     margin: 0;
     padding: 0;
     color: #999;
-    font-family: arial;
+    font-family: 'Microsoft Yahei','微软雅黑',arial;
 }
 html {
     background-color: #1b2426;

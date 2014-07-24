@@ -199,5 +199,13 @@
         "song_name": "太早",
         "artist": "刘允乐",
         "lrc_name": "tai_zao"
+    }, {
+        "song_name": "Christmas In My Heart",
+        "artist": "Sarah Connor",
+        "lrc_name": "Christmas_In My_Heart"
+    }, {
+        "song_name": "红色石头",
+        "artist": "李智楠",
+        "lrc_name": "hong_se_shi_tou"
     }]
 }

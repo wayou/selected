@@ -5,7 +5,7 @@
  * Wayou  Apr 5th,2014
  * view on GitHub:https://github.com/wayou/selected
  * see the live site:http://wayou.github.io/selected/
- * songs used in this project are only for educational purpose. please don't distribute or sell
+ * songs used in this project are only for educational purpose
  */
 window.onload = function() {
     new Selected().init();

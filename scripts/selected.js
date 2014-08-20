@@ -1,6 +1,6 @@
 /*
  * Selected | a collection of songs that I love
- * v0.2.0
+ * v0.3.0
  * also as a showcase that shows how to sync lyric with the HTML5 audio tag
  * Wayou  Apr 5th,2014
  * view on GitHub:https://github.com/wayou/selected
@@ -27,9 +27,28 @@ Selected.prototype = {
         var that = this,
             allSongs = this.playlist.children[0].children,
             currentSong, randomSong;
-        this.currentIndex = Math.floor(Math.random() * allSongs.length);
+
+        //get the hash from the url if there's any.
+        var songName = window.location.hash.substr(1);
+        //then get the index of the song from all songs
+        var indexOfHashSong = (function() {
+            var index = 0;
+            Array.prototype.forEach.call(allSongs, function(v, i, a) {
+                if (v.children[0].getAttribute('data-name') == songName) {
+                    index = i;
+                    return false;
+                }
+            });
+            return index;
+        })();
+
+        this.currentIndex = indexOfHashSong || Math.floor(Math.random() * allSongs.length);
+
         currentSong = allSongs[this.currentIndex];
         randomSong = currentSong.children[0].getAttribute('data-name');
+
+        //set the song name to the hash of the url
+        window.location.hash = window.location.hash || randomSong;
 
 
         //handle playlist
@@ -42,6 +61,7 @@ Selected.prototype = {
             that.currentIndex = selectedIndex;
             that.setClass(selectedIndex);
             var songName = e.target.getAttribute('data-name');
+            window.location.hash = songName;
             that.play(songName);
         }, false);
         this.audio.onended = function() {
@@ -133,6 +153,7 @@ Selected.prototype = {
         nextItem = allSongs[that.currentIndex].children[0];
         that.setClass(that.currentIndex);
         var songName = nextItem.getAttribute('data-name');
+        window.location.hash = songName;
         that.play(songName);
     },
     setClass: function(index) {

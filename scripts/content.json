@@ -80,10 +80,6 @@
         "artist": "金莎",
         "lrc_name": "hua_zhong_xian"
     }, {
-        "song_name": "Truly Madly Deeply",
-        "artist": "Savage Garden",
-        "lrc_name": "truly_madly_deeply"
-    }, {
         "song_name": "毅丝和黑木耳的故事",
         "artist": "不详",
         "lrc_name": "yi_si_he_hei_mu_er_de_gu_shi"
@@ -133,7 +129,7 @@
         "lrc_name": "dao_bu_liao"
     }, {
         "song_name": "Let It Go ",
-        "artist": "Yuna Ito",
+        "artist": "伊藤由奈",
         "lrc_name": "let_it_go"
     }, {
         "song_name": "猜不透",
@@ -291,5 +287,9 @@
         "song_name": "为什么",
         "artist": "蔡卓妍",
         "lrc_name": "wei_shen_me"
+    }, {
+        "song_name": "一百万个可能",
+        "artist": "Christine Welch",
+        "lrc_name": "yi_bai_wan_ge_ke_neng"
     }]
 }

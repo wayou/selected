@@ -26,7 +26,7 @@ Selected.prototype = {
 
         var that = this,
             allSongs = this.playlist.children[0].children,
-            currentSong, randomSong;
+            currentSong, currentSongName;
 
         //get the hash from the url if there's any.
         var songName = window.location.hash.substr(1);
@@ -45,10 +45,10 @@ Selected.prototype = {
         this.currentIndex = indexOfHashSong || Math.floor(Math.random() * allSongs.length);
 
         currentSong = allSongs[this.currentIndex];
-        randomSong = currentSong.children[0].getAttribute('data-name');
+        currentSongName = currentSong.children[0].getAttribute('data-name');
 
         //set the song name to the hash of the url
-        window.location.hash = window.location.hash || randomSong;
+        window.location.hash = window.location.hash || currentSongName;
 
 
         //handle playlist
@@ -82,7 +82,7 @@ Selected.prototype = {
             allSongs[i].className = '';
         };
         currentSong.className = 'current-song';
-        this.play(randomSong);
+        this.play(currentSongName);
     },
     initialList: function(ctx) {
         var xhttp = new XMLHttpRequest();

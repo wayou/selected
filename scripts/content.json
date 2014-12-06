@@ -245,7 +245,7 @@
         "lrc_name": "ai_xiang_wei"
     }, {
         "song_name": "尾戒",
-        "artist": "Nova",
+        "artist": "NOVA",
         "lrc_name": "wei_jie"
     }, {
         "song_name": "为情所伤",
@@ -303,5 +303,9 @@
         "song_name": "月半弯",
         "artist": "张学友",
         "lrc_name": "yue_ban_wan"
+    }, {
+        "song_name": "我忘了",
+        "artist": "NOVA",
+        "lrc_name": "wo_wang_le"
     }]
 }

@@ -70,6 +70,18 @@ Selected.prototype = {
         this.audio.onerror = function(e) {
             that.lyricContainer.textContent = '!fail to load the song :(';
         };
+
+        //enable keyboard control , spacebar to play and pause
+        window.addEventListener('keydown', function(e) {
+            if (e.keyCode === 32) {
+                if (that.audio.paused) {
+                    that.audio.play();
+                } else {
+                    that.audio.pause();
+                }
+            }
+        }, false);
+
         //initialize the background setting
         document.getElementById('bg_dark').addEventListener('click', function() {
             document.getElementsByTagName('html')[0].className = 'colorBg';

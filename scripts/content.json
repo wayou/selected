@@ -327,5 +327,9 @@
         "song_name": "海底",
         "artist": "Jessie",
         "lrc_name": "hai_di"
+    }, {
+        "song_name": "贝多芬的悲伤",
+        "artist": "萧风",
+        "lrc_name": "bei_duo_fen_de_you_shang"
     }]
 }

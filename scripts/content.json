@@ -343,5 +343,9 @@
         "song_name": "电灯胆",
         "artist": "邓丽欣",
         "lrc_name": "dian_deng_dan"
+    }, {
+        "song_name": "冬天的秘密",
+        "artist": "周传雄",
+        "lrc_name": "dong_tian_de_mi_mi"
     }]
 }

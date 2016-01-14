@@ -83,12 +83,12 @@ Selected.prototype = {
         }, false);
 
         //initialize the background setting
-        document.getElementById('bg_dark').addEventListener('click', function() {
-            document.getElementsByTagName('html')[0].className = 'colorBg';
-        });
-        document.getElementById('bg_pic').addEventListener('click', function() {
-            document.getElementsByTagName('html')[0].className = 'imageBg';
-        });
+//        document.getElementById('bg_dark').addEventListener('click', function() {
+//            document.getElementsByTagName('html')[0].className = 'colorBg';
+//       });
+//        document.getElementById('bg_pic').addEventListener('click', function() {
+//            document.getElementsByTagName('html')[0].className = 'imageBg';
+//        });
         //initially start from a random song
         for (var i = allSongs.length - 1; i >= 0; i--) {
             allSongs[i].className = '';
@@ -129,12 +129,12 @@ Selected.prototype = {
         this.lyric = null;
         this.lyricContainer.textContent = 'loading...';
         this.lyricStyle = Math.floor(Math.random() * 4);
-        this.audio.oncanplay = function() {
+        this.audio.addEventListener('canplay', function() {
             that.getLyric(that.audio.src.replace('.mp3', '.lrc'));
             this.play();
-        };
+        });
         //sync the lyric
-        this.audio.ontimeupdate = function(e) {
+        this.audio.addEventListener("timeupdate", function(e) {
             if (!that.lyric) return;
             for (var i = 0, l = that.lyric.length; i < l; i++) {
                 if (this.currentTime > that.lyric[i][0] - 0.50 /*preload the lyric by 0.50s*/ ) {
@@ -149,7 +149,7 @@ Selected.prototype = {
                     that.lyricContainer.style.top = 130 - line.offsetTop + 'px';
                 };
             };
-        };
+        });
     },
     playNext: function(that) {
         var allSongs = this.playlist.children[0].children,
@@ -223,6 +223,7 @@ Selected.prototype = {
         result.sort(function(a, b) {
             return a[0] - b[0];
         });
+		console.log(result);
         return result;
     },
     appendLyric: function(lyric) {

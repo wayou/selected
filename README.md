@@ -5,4 +5,4 @@ a collection of songs that I love, also as a showcase of syncing lyric with html
 
 :point_right: [Go and Enjoy](http://wayou.github.io/selected)
 
-:exclamation: songs used in this project are only for research purpose!
+:exclamation: songs used in this project are only for demonstration purpose!
